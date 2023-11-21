@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
+//        task1();
+//        task2();
+        task3();
     }
 
     //Task1
@@ -32,6 +35,82 @@ public class Main {
         }
 
         System.out.println("Вы отгадали за " + counter + " попыток");
-
     }
+
+    //Task2
+    //Калькулятор матриц
+    public static void task2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите размер матрицы");
+        int size = scanner.nextInt();
+        int[] numbers = new int[size];
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println("Введите " + i + "ый элемент матрицы");
+            numbers[i] = scanner.nextInt();
+        }
+        System.out.println("Введите необходимое действие (сложение/вычитание/умножение)");
+        String s = scanner.next();
+
+        switch (s) {
+            case "сложение" -> {
+                int sum = 0;
+                for (int i = 0; i < numbers.length; i++) {
+                    sum += numbers[i];
+                }
+                System.out.println("Сумма = " + sum);
+            }
+            case "вычитание" -> {
+                int result = numbers[0];
+                for (int i = 1; i < numbers.length; i++) {
+                    result -= numbers[i];
+                }
+                System.out.println("Разность = " + result);
+            }
+            case "умножение" -> {
+                int result = 1;
+                for (int i = 0; i < numbers.length; i++) {
+                    result *= numbers[i];
+                }
+                System.out.println("Произведение = " + result);
+            }
+            default -> System.out.println("Такой операции не существует");
+        }
+    }
+
+    //Task3
+    //Расписание занятий
+
+    public static void task3() {
+        String[] schedule = new String[7];
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите действие (добавить/удалить/просмотреть)");
+        String action = scanner.next();
+
+        switch (action) {
+            case "добавить" -> {
+                for (int i = 0; i < schedule.length; i++) {
+                    System.out.println("Введите запись");
+                }
+
+                String subject = scanner.nextLine();
+                schedule.add(subject);
+            }
+            case "удалить" -> {
+                System.out.println("Введите запись");
+                String subject = scanner.nextLine();
+                for (int i = 0; i < schedule.size(); i++) {
+                    if(schedule.get(i).equalsIgnoreCase(subject)){
+                        schedule.remove(i);
+                    }
+                }
+            }
+            case "просмотреть" -> {
+                for (String s : schedule) {
+                    System.out.println(s);
+                }
+            }
+        }
+    }
+
+
 }
