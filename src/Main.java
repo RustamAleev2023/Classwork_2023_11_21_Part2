@@ -7,7 +7,8 @@ public class Main {
 //        task1();
 //        task2();
 //        task3();
-        task4();
+//        task4();
+        task5();
     }
 
     //Task1
@@ -254,10 +255,32 @@ public class Main {
                     }
                 }
             }
-
-
         }
+    }
 
+    //Task5
+    //Крестики-нолики
+    public static void task5() {
+        char x = 'X';
+        char o = '0';
+        char empty = '_';
+
+        //fill empty table
+        char[][] field = new char[3][3];
+        for (int j = 0; j < field.length; j++) {
+            for (int i = 0; i < field[0].length; i++) {
+                field[j][i] = empty;
+            }
+        }
+        print(field);
+    }
+    public static void print(char[][] field) {
+        for (int j = 0; j < field.length; j++) {
+            for (int i = 0; i < field[0].length; i++) {
+                System.out.print(field[j][i]);
+            }
+            System.out.println("");
+        }
 
     }
 }
