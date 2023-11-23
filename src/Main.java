@@ -83,34 +83,34 @@ public class Main {
     public static void task3() {
         String[] schedule = new String[7];
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите действие (добавить/удалить/просмотреть)");
-        String action = scanner.next();
 
-        switch (action) {
-            case "добавить" -> {
-                for (int i = 0; i < schedule.length; i++) {
-                    System.out.println("Введите запись");
-                }
+        while (true) {
+            System.out.println("Выберите действие (добавить/удалить/просмотреть/exit)");
+            String action = scanner.next();
 
-                String subject = scanner.nextLine();
-                schedule.add(subject);
+            if (action.equalsIgnoreCase("exit")) {
+                break;
             }
-            case "удалить" -> {
+
+            if (action.equalsIgnoreCase("добавить")) {
+                System.out.println("Выберите номер дня недели (от 1 до 7)");
+                int weekDay = scanner.nextInt();
                 System.out.println("Введите запись");
-                String subject = scanner.nextLine();
-                for (int i = 0; i < schedule.size(); i++) {
-                    if(schedule.get(i).equalsIgnoreCase(subject)){
-                        schedule.remove(i);
-                    }
-                }
+                String notes = scanner.next();
+                schedule[weekDay - 1] = notes;
             }
-            case "просмотреть" -> {
+            if (action.equalsIgnoreCase("удалить")) {
+                System.out.println("Выберите номер дня недели (от 1 до 7) расписание которого Вы хотите удалить");
+                int weekDay = scanner.nextInt();
+                schedule[weekDay - 1] = null;
+            }
+            if (action.equalsIgnoreCase("просмотреть")) {
                 for (String s : schedule) {
                     System.out.println(s);
                 }
             }
         }
+
     }
-
-
 }
+
