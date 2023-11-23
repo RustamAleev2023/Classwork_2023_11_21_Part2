@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
 //        task1();
 //        task2();
-        task3();
+//        task3();
+        task4();
     }
 
     //Task1
@@ -110,6 +111,153 @@ public class Main {
                 }
             }
         }
+    }
+
+    //Task4
+    //Конвертер
+    public static void task4() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Выберите что будем конвертировать (длина/объем/масса)");
+            System.out.println("Для выхода наберите exit");
+            String type = scanner.next();
+
+            if (type.equalsIgnoreCase("exit")) {
+                break;
+            }
+            if (type.equalsIgnoreCase("длина")) {
+                System.out.println("Выберите, что вы хотите конвертировать (1 - метры/2 - дециметры/3 - сантиметры)");
+                int from = scanner.nextInt();
+                System.out.println("Введите значение");
+                int valueFrom = scanner.nextInt();
+                System.out.println("Выберите, во что вы хотите конвертировать (1 - метры / 2 - дециметры / 3 - сантиметры)");
+                int to = scanner.nextInt();
+                if (from == 1) {//метры
+                    if (to == 1) { // в метры
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 2) {
+                        System.out.println(valueFrom * 10);// в дециметры
+                    }
+                    if (to == 3) {
+                        System.out.println(valueFrom * 100);// в сантиметры
+                    }
+
+                }
+                if (from == 2) { // дециметры
+                    if (to == 1) { // в метры
+                        System.out.println(valueFrom / 10);
+                    }
+                    if (to == 2) { // в дециметры
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 3) { // в сантиметры
+                        System.out.println(valueFrom * 10);
+                    }
+                }
+                if (from == 3) { //сантиметры
+                    if (to == 1) { // в метры
+                        System.out.println(valueFrom / 100);
+                    }
+                    if (to == 2) { // в дециметры
+                        System.out.println(valueFrom / 10);
+                    }
+                    if (to == 3) { // в сантиметры
+                        System.out.println(valueFrom);
+                    }
+                }
+            }
+            if (type.equalsIgnoreCase("объем")) {
+                System.out.println("Выберите, что вы хотите конвертировать (1 - метры куб. / 2 - дециметры куб. / 3 - сантиметры куб.)");
+                int from = scanner.nextInt();
+                System.out.println("Введите значение");
+                int valueFrom = scanner.nextInt();
+                System.out.println("Выберите, во что вы хотите конвертировать (1 - метры куб. / 2 - дециметры куб. / 3 - сантиметры куб.)");
+                int to = scanner.nextInt();
+
+                if (from == 1) {//метры куб
+                    if (to == 1) { // в метры куб
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 2) {
+                        System.out.println(valueFrom * 1000);// в дециметры куб
+                    }
+                    if (to == 3) {
+                        System.out.println(valueFrom * 1_000_000);// в сантиметры куб
+                    }
+
+                }
+                if (from == 2) { // дециметры куб
+                    if (to == 1) { // в метры куб
+                        System.out.println(valueFrom / 1000);
+                    }
+                    if (to == 2) { // в дециметры куб
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 3) { // в сантиметры куб
+                        System.out.println(valueFrom * 1000);
+                    }
+                }
+                if (from == 3) { //сантиметры куб
+                    if (to == 1) { // в метры куб
+                        System.out.println(valueFrom / 1_000_000);
+                    }
+                    if (to == 2) { // в дециметры куб
+                        System.out.println(valueFrom / 1000);
+                    }
+                    if (to == 3) { // в сантиметры куб
+                        System.out.println(valueFrom);
+                    }
+                }
+            }
+            if (type.equalsIgnoreCase("масса")) {
+                System.out.println("Выберите, что вы хотите конвертировать (1 - тонна / 2 - килограмм / 3 - грамм)");
+                int from = scanner.nextInt();
+                System.out.println("Введите значение");
+                int valueFrom = scanner.nextInt();
+                System.out.println("Выберите, во что вы хотите конвертировать (1 - тонна / 2 - килограмм / 3 - грамм)");
+                int to = scanner.nextInt();
+
+                if (from == 1) {//тонна
+                    if (to == 1) { // в тонна
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 2) {
+                        System.out.println(valueFrom * 1000);// в кг
+                    }
+                    if (to == 3) {
+                        System.out.println(valueFrom * 1_000_000);// в г
+                    }
+
+                }
+                if (from == 2) { // кг
+                    if (to == 1) { // в тонны
+                        System.out.println(valueFrom / 1000);
+                    }
+                    if (to == 2) { // в кг
+                        System.out.println(valueFrom);
+                    }
+                    if (to == 3) { // в г
+                        System.out.println(valueFrom * 1000);
+                    }
+                }
+                if (from == 3) { //г
+                    if (to == 1) { // в тонны
+                        System.out.println(valueFrom / 1_000_000);
+                    }
+                    if (to == 2) { // в кг
+                        System.out.println(valueFrom / 1000);
+                    }
+                    if (to == 3) { // в г
+                        System.out.println(valueFrom);
+                    }
+                }
+            }
+
+
+        }
+
 
     }
 }
